@@ -15,6 +15,8 @@ export default {
         "primary-hover": "#C20C3C",
         "primary-active": "#AE113A",
         "accent": "#6FBC9A",
+        "dashboard": "#EFF1F9",
+        "exit": "#6F849C"
       },
     },
   },
