@@ -90,7 +90,7 @@
               :class="current === 'Мой профиль' ? 'text-primary' : 'text-black'"
               icon="work"
               title="Мой профиль"
-              @click="current = 'Мой профиль'"
+              @click="current = 'Мой профиль'; toggleMobile()"
             />
             <PopsoMenuItem
               :extend="sidebar"
@@ -98,7 +98,7 @@
               :class="current === 'Список задач' ? 'text-primary' : 'text-black'"
               icon="tasks"
               title="Список задач"
-              @click="current = 'Список задач'"
+              @click="current = 'Список задач'; toggleMobile()"
             />
             <PopsoMenuItem
               :extend="sidebar"
@@ -106,7 +106,7 @@
               :class="current === 'Статистика' ? 'text-primary' : 'text-black'"
               icon="stats"
               title="Статистика"
-              @click="current = 'Статистика'"
+              @click="current = 'Статистика'; toggleMobile()"
             />
           </div>
           <div class="flex flex-col h-full items-center justify-end gap-4">

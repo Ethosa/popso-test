@@ -51,7 +51,7 @@
       <div
         v-show="bottomFilter"
         :key="bottomFilter"
-        class="flex flex-col items-center px-4 py-8 gap-8 rounded-t-xl bg-white fixed bottom-0 left-0 right-0"
+        class="flex flex-col items-center px-4 py-8 gap-12 rounded-t-xl bg-white fixed bottom-0 left-0 right-0"
       >
         <div class="flex justify-between w-full">
           <h1 class="text-3xl">
@@ -76,7 +76,7 @@
             Уменьшить кол-во данных
           </PopsoCheckbox>
         </div>
-        <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-col items-center gap-2 justify-end min-h-48">
           <PopsoButton
             @click="applyFilters()"
           >
