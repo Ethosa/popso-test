@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col items-end rounded-lg bg-white p-8 gap-4">
-    <div class="flex w-full gap-8">
+  <div class="flex flex-col items-end rounded-lg bg-white p-4 md:p-8 gap-4">
+    <div class="flex flex-col md:flex-row w-full gap-4 md:gap-8">
       <div class="flex flex-col w-full gap-4">
         <PopsoInput
           placeholder="Имя"
@@ -32,7 +32,7 @@
       </div>
     </div>
     <PopsoButton
-      class="w-fit"
+      class="w-full md:w-fit"
       @click="saveUser()"
     >
       сохранить
@@ -63,6 +63,28 @@ const authStore = useAuthStore()
 
 
 async function saveUser() {
+  firstNameError.value = ''
+  lastNameError.value = ''
+  loginError.value = ''
+  passwordError.value = ''
+
+  if (lastName.value === '') {
+    lastNameError.value = 'Пожалуйста, заполните поле'
+    return
+  }
+  if (firstName.value === '') {
+    firstNameError.value = 'Пожалуйста, заполните поле'
+    return
+  }
+  if (login.value === '') {
+    loginError.value = 'Пожалуйста, заполните поле'
+    return
+  }
+  if (password.value === '') {
+    passwordError.value = 'Пожалуйста, заполните поле'
+    return
+  }
+
   const response = await api.updateUser(
     loginCookie.value, passwordCookie.value,
     firstName.value, lastName.value, login.value, password.value
