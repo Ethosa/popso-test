@@ -36,10 +36,7 @@ definePageMeta({
 const loginCookie = useCookie('login', {default: _ => ""})
 const passwordCookie = useCookie('password', {default: _ => ""})
 
-console.log(loginCookie.value)
-console.log(passwordCookie.value)
-const authState = useState('auth', () => loginCookie.value !== '' && passwordCookie.value !== '')
-console.log(authState.value)
+const authState = loginCookie.value !== '' && passwordCookie.value !== ''
 
 // data
 const login = ref(loginCookie)
@@ -47,13 +44,13 @@ const password = ref(passwordCookie)
 const loginError = ref()
 const passwordError = ref()
 
-const btnText = ref(authState.value ? 'войти' : 'зарегистрироваться')
+const btnText = ref(authState !== '' ? 'войти' : 'зарегистрироваться')
 
 const authStore = useAuthStore()
 
 async function auth() {
   let data = null
-  if (authState.value) {
+  if (authState) {
     const response = await api.auth(login.value, password.value)
     data = response
   } else {
@@ -74,7 +71,7 @@ async function auth() {
 
 
 onMounted(() => {
-  btnText.value = authState.value ? 'войти' : 'зарегистрироваться'
+  btnText.value = authState ? 'войти' : 'зарегистрироваться'
 })
 
 </script>
