@@ -24,6 +24,8 @@ def auth_middleware(req: HttpRequest) -> HttpResponse | None:
 
 @csrf_exempt
 def auth(req: HttpRequest) -> HttpResponse:
+    if req.method == "OPTIONS":
+        return HttpResponse('', status=200)
     if _ := auth_middleware(req) is not None:
         return _
     user = None
@@ -48,6 +50,8 @@ def auth(req: HttpRequest) -> HttpResponse:
 
 @csrf_exempt
 def register(req: HttpRequest) -> HttpResponse:
+    if req.method == "OPTIONS":
+        return HttpResponse('', status=200)
     if _ := auth_middleware(req) is not None:
         return _
     user = None
