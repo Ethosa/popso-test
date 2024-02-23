@@ -17,7 +17,7 @@
         v-model:value="password"
       />
       <PopsoButton class="w-full" @clicked="auth()">
-        {{ authState ? 'войти' : 'зарегистрироваться' }}
+        {{ btnText }}
       </PopsoButton>
     </div>
   </div>
@@ -43,6 +43,8 @@ const password = ref(passwordCookie)
 const loginError = ref()
 const passwordError = ref()
 
+const btnText = ref(authState.value ? 'войти' : 'зарегистрироваться')
+
 const authStore = useAuthStore()
 
 async function auth() {
@@ -65,5 +67,10 @@ async function auth() {
     passwordError.value = data["error"]
   }
 }
+
+
+onMounted(() => {
+  btnText.value = authState.value ? 'войти' : 'зарегистрироваться'
+})
 
 </script>
