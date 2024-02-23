@@ -17,7 +17,7 @@
         v-model:value="password"
       />
       <PopsoButton class="w-full" @clicked="auth()">
-        {{ authState.value ? 'войти' : 'зарегистрироваться' }}
+        {{ authState ? 'войти' : 'зарегистрироваться' }}
       </PopsoButton>
     </div>
   </div>
