@@ -17,7 +17,7 @@
         v-model:value="password"
       />
       <PopsoButton class="w-full" @clicked="auth()">
-        {{ btnText }}
+        {{ authState.value ? 'войти' : 'зарегистрироваться' }}
       </PopsoButton>
     </div>
   </div>
@@ -33,8 +33,8 @@ definePageMeta({
 })
 
 // cookies
-const loginCookie = useCookie('login', {default: (v) => ""})
-const passwordCookie = useCookie('password', {default: (v) => ""})
+const loginCookie = useCookie('login', {default: _ => ""})
+const passwordCookie = useCookie('password', {default: _ => ""})
 const authState = useState('auth', () => loginCookie.value !== '' && passwordCookie.value !== '')
 
 // data
@@ -42,7 +42,6 @@ const login = ref(loginCookie)
 const password = ref(passwordCookie)
 const loginError = ref()
 const passwordError = ref()
-const btnText = loginCookie.value !== '' && passwordCookie.value !== '' ? 'войти' : 'зарегистрироваться'
 
 const authStore = useAuthStore()
 
@@ -55,8 +54,6 @@ async function auth() {
     const response = await api.register(login.value, password.value)
     data = response
   }
-  console.log("hurrah")
-  console.log(data)
 
   if ('response' in data) {
     loginCookie.value = login.value
