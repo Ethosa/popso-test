@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-screen h-screen justify-center items-center">
     <div class="flex flex-col items-center gap-4 h-1/3 md:h-3/5 md:w-1/4 text-lg">
-      <img src="/popso.svg" class="select-none pointer-events-none w-2/3 md:w-1/2 mb-8">
+      <img src="/public/popso.svg" class="select-none pointer-events-none w-2/3 md:w-1/2 mb-8">
       <PopsoInput
         class="w-full"
         placeholder="Логин"

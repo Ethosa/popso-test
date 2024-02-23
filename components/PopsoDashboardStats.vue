@@ -57,7 +57,7 @@
           <h1 class="text-3xl">
             Фильтры
           </h1>
-          <img src="/close_menu_mobile.svg" class="w-6 select-none cursor-pointer" @click="toggleFilter()">
+          <img src="/public/close_menu_mobile.svg" class="w-6 select-none cursor-pointer" @click="toggleFilter()">
         </div>
         <div class="flex flex-col gap-4 w-fit">
           <PopsoCheckbox v-model:checked="filterRandomize">

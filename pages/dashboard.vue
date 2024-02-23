@@ -6,15 +6,15 @@
     >
       <Transition name="logo" mode="out-in">
         <div :key="sidebar">
-          <img class="h-12" v-show="sidebar" src="/popso_first_letter.svg">
-          <img class="h-12" v-show="!sidebar" src="/popso.svg">
+          <img class="h-12" v-show="sidebar" src="/public/popso_first_letter.svg">
+          <img class="h-12" v-show="!sidebar" src="/public/popso.svg">
         </div>
       </Transition>
       <div
         class="absolute -right-8 top-2 w-16 h-16 bg-white drop-shadow-lg cursor-pointer select-none flex justify-center items-center rounded-full"
         @click="toggle()"
       >
-        <img ref="arrow" src="/arrow_back.svg" class="scale-100 duration-150">
+        <img ref="arrow" src="/public/arrow_back.svg" class="scale-100 duration-150">
       </div>
       <div class="flex flex-col items-center gap-4">
         <PopsoMenuItem
@@ -55,8 +55,8 @@
     </div>
     <!-- navigation mobile -->
     <div class="sticky top-0 z-10 flex md:hidden gap-4 w-full bg-white p-4">
-      <img class="cursor-pointer select-none" src="/mobile_menu.svg" @click="toggleMobile()">
-      <img class="h-6 select-none" src="/popso.svg">
+      <img class="cursor-pointer select-none" src="/public/mobile_menu.svg" @click="toggleMobile()">
+      <img class="h-6 select-none" src="/public/popso.svg">
     </div>
     <div
       :class="`flex flex-col py-8 md:py-16 pl-4 ${!sidebar ? 'md:pl-96' : 'md:pl-64'} pr-4 md:pr-8 w-full h-full`"
@@ -82,7 +82,7 @@
     <Transition name="sidebar" mode="out-in">
       <div :key="sidebarMobile" class="fixed md:hidden z-20">
         <div v-show="sidebarMobile" class="fixed flex flex-col gap-4 w-3/4 drop-shadow-lg h-screen bg-white p-6">
-          <img class="fixed top-4 left-4 cursor-pointer select-none h-6" src="/close_menu_mobile.svg" @click="toggleMobile()">
+          <img class="fixed top-4 left-4 cursor-pointer select-none h-6" src="/public/close_menu_mobile.svg" @click="toggleMobile()">
           <div class="flex flex-col items-center gap-4 pt-12">
             <PopsoMenuItem
               :extend="sidebar"

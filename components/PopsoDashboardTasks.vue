@@ -15,7 +15,7 @@
               class="flex items-center cursor-pointer justify-center border-[2px] min-w-6 min-h-6 w-fit"
               @click="i['completed'] = !i['completed']"
             >
-              <img v-show="i['completed']" src="/check.svg">
+              <img v-show="i['completed']" src="/public/check.svg">
             </div>
           </div>
         </div>
