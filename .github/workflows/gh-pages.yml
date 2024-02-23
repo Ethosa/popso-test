@@ -1,0 +1,38 @@
+name: Github Pages 🌐
+
+on:
+  push:
+    branches:
+      - 'master'
+
+permissions:
+  contents: write
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    needs: before
+    env:
+      node_version: '20'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ env.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.node_version }}
+
+      - name: Install Dependencies 🔃
+        run: |
+          yarn install
+
+      - name: Build 👀
+        run: |
+          yarn generate
+
+      - name: Deploy documents 💨
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.output
+        if: github.ref == 'refs/heads/master'
