@@ -35,6 +35,9 @@ definePageMeta({
 // cookies
 const loginCookie = useCookie('login', {default: _ => ""})
 const passwordCookie = useCookie('password', {default: _ => ""})
+
+console.log(loginCookie.value)
+console.log(passwordCookie.value)
 const authState = useState('auth', () => loginCookie.value !== '' && passwordCookie.value !== '')
 
 // data
