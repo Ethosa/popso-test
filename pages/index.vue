@@ -39,6 +39,7 @@ const passwordCookie = useCookie('password', {default: _ => ""})
 console.log(loginCookie.value)
 console.log(passwordCookie.value)
 const authState = useState('auth', () => loginCookie.value !== '' && passwordCookie.value !== '')
+console.log(authState.value)
 
 // data
 const login = ref(loginCookie)
